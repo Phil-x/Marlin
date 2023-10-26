@@ -30,11 +30,11 @@
 
 #define REQUIRE_MEGA2560
 #include "env_validate.h"
-
+/*
 #if HOTENDS > 3 || E_STEPPERS > 3
   #error "RUMBA supports up to 3 hotends / E steppers."
 #endif
-
+*/
 #ifndef BOARD_INFO_NAME
   #define BOARD_INFO_NAME "Rumba"
 #endif
@@ -69,6 +69,11 @@
   #define Z_MAX_PIN                           32
 #endif
 
+//Dummy not used but required to compile
+#define I_STOP_PIN                             37
+#define J_STOP_PIN                             37
+#define K_STOP_PIN                             37
+
 //
 // Z Probe (when not Z_MIN_PIN)
 //
@@ -91,22 +96,22 @@
 #define Z_DIR_PIN                             56
 #define Z_ENABLE_PIN                          62
 
-#ifndef E0_STEP_PIN
-  #define E0_STEP_PIN                         23
-  #define E0_DIR_PIN                          22
-  #define E0_ENABLE_PIN                       24
+#ifndef I_STEP_PIN
+  #define I_STEP_PIN                         23
+  #define I_DIR_PIN                          22
+  #define I_ENABLE_PIN                       24
 #endif
 
-#ifndef E1_STEP_PIN
-  #define E1_STEP_PIN                         26
-  #define E1_DIR_PIN                          25
-  #define E1_ENABLE_PIN                       27
+#ifndef J_STEP_PIN
+  #define J_STEP_PIN                         26
+  #define J_DIR_PIN                          25
+  #define J_ENABLE_PIN                       27
 #endif
 
-#if E1_STEP_PIN != 29
-  #define E2_STEP_PIN                         29
-  #define E2_DIR_PIN                          28
-  #define E2_ENABLE_PIN                       39
+#if J_STEP_PIN != 29
+  #define K_STEP_PIN                         29
+  #define K_DIR_PIN                          28
+  #define K_ENABLE_PIN                       39
 #endif
 
 //
