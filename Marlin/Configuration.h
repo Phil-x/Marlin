@@ -1223,7 +1223,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 60, 80, 64, 21, 40, 40} //  PGR
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 60, 80, 64, 21, 40, 40} //  PGR - See my Excel file.
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
@@ -1258,9 +1258,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_ACCELERATION          10    // X, Y, Z and E acceleration for printing moves //PGR
+#define DEFAULT_RETRACT_ACCELERATION  10    // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   10    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1714,7 +1714,7 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR true
+#define INVERT_Y_DIR false
 #define INVERT_Z_DIR false
 #define INVERT_I_DIR false //PGR
 #define INVERT_J_DIR false
@@ -1782,8 +1782,8 @@
 // @section geometry
 
 // The size of the printable area
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+#define X_BED_SIZE 360
+#define Y_BED_SIZE 360
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1791,7 +1791,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 200
+#define Z_MAX_POS 360
 #define I_MIN_POS 0 //PGR
 #define I_MAX_POS 50
 #define J_MIN_POS 0
@@ -2218,7 +2218,7 @@
 #define MANUAL_X_HOME_POS 0 //PGR
 #define MANUAL_Y_HOME_POS 0
 #define MANUAL_Z_HOME_POS 0
-#define MANUAL_I_HOME_POS 0
+#define MANUAL_I_HOME_POS 1
 #define MANUAL_J_HOME_POS 0
 #define MANUAL_K_HOME_POS 0
 //#define MANUAL_U_HOME_POS 0
@@ -2241,7 +2241,7 @@
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M { (50*60), (50*60), (4*60), (4*60), (4*60), (4*60) } //PGR
+#define HOMING_FEEDRATE_MM_M { (50*60), (50*80), (4*64), (4*21), (4*40), (4*40) } //PGR
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
