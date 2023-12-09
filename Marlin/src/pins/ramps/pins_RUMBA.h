@@ -45,7 +45,7 @@
 //
 // Servos
 //
-#define SERVO0_PIN                             5
+#define SERVO0_PIN                             31 // rumba EXP3 connector PC6
 
 //
 // Limit Switches

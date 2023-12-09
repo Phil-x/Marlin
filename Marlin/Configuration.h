@@ -1230,7 +1230,7 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 360, 360, 360, 360, 360, 360 } //PGR
+#define DEFAULT_MAX_FEEDRATE          { 360, 360, 360, 360, 360, 360 } //PGR 
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1243,9 +1243,10 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 10, 4, 4, 4,4,4 } //PGR
+#define DEFAULT_MAX_ACCELERATION      { 10, 10, 4, 4, 4, 4 } //PGR
 
-//#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
+//#define LIMITED_MAX_ACCEL_EDITING     // Limit edit 
+//M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
   #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
 #endif
@@ -1716,9 +1717,9 @@
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR false
 #define INVERT_Z_DIR false
-#define INVERT_I_DIR false //PGR
-#define INVERT_J_DIR false
-#define INVERT_K_DIR false
+#define INVERT_I_DIR false // A PGR 
+#define INVERT_J_DIR true // B 
+#define INVERT_K_DIR false // C
 //#define INVERT_U_DIR false
 //#define INVERT_V_DIR false
 //#define INVERT_W_DIR false
@@ -2218,7 +2219,7 @@
 #define MANUAL_X_HOME_POS 0 //PGR
 #define MANUAL_Y_HOME_POS 0
 #define MANUAL_Z_HOME_POS 0
-#define MANUAL_I_HOME_POS 1
+#define MANUAL_I_HOME_POS 0
 #define MANUAL_J_HOME_POS 0
 #define MANUAL_K_HOME_POS 0
 //#define MANUAL_U_HOME_POS 0
@@ -3549,7 +3550,7 @@
  * Set this manually if there are extra servos needing manual control.
  * Set to 0 to turn off servo support.
  */
-//#define NUM_SERVOS 3 // Note: Servo index starts with 0 for M280-M282 commands
+#define NUM_SERVOS 1 // Note: Servo index starts with 0 for M280-M282 commands
 
 // (ms) Delay before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
@@ -3560,7 +3561,8 @@
 //#define DEACTIVATE_SERVOS_AFTER_MOVE
 
 // Edit servo angles with M281 and save to EEPROM with M500
-//#define EDITABLE_SERVO_ANGLES
+#define HAS_SERVO_ANGLES 1
+#define EDITABLE_SERVO_ANGLES
 
 // Disable servo with M282 to reduce power consumption, noise, and heat when not in use
 //#define SERVO_DETACH_GCODE
